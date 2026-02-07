@@ -1,6 +1,9 @@
 import { useState, useCallback } from 'react'
 import './App.css'
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
@@ -59,7 +62,7 @@ function App() {
             onKeyDown={(e) => e.key === 'Enter' && addTask()}
           
         />
-        <button className="add-button" onClick={addTask}>Add</button>
+        <button className="add-button" onClick={addTask}><AddIcon/></button>
       </div>
 
       <ol>
@@ -67,9 +70,9 @@ function App() {
           <li key={index}>
             <span className="text">{task}</span>
             <div className="button-group">
-              <button className="delete-button" onClick={() => deleteTask(index)}>Delete</button>
-              <button className="move-button" onClick={() => moveTaskUp(index)}>UP</button>
-              <button className="move-button" onClick={() => moveTaskDown(index)}>DOWN</button>
+              <button className="delete-button" onClick={() => deleteTask(index)}><DeleteIcon/></button>
+              <button className="move-button" onClick={() => moveTaskUp(index)}><ArrowUpwardIcon/></button>
+              <button className="move-button" onClick={() => moveTaskDown(index)}><ArrowDownwardIcon/></button>
             </div>
           </li>
         ))}
